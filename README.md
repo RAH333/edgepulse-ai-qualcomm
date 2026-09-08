@@ -1,20 +1,38 @@
 # edgepulse-ai-qualcomm
 A low-latency, localized edge intelligence engine running on Qualcomm Snapdragon X Elite and Arduino UNO Q to drive real-time autonomous hardware workflows.
 ```
-edgepulse-ai-qualcomm/
-├── .gitignore
-├── README.md
-├── requirements.txt
-├── firmware/
+edgepulse-ai-agent/                  # Your ONE master GitHub repository folder
+│
+├── .gitignore                       # Block temporary cache and hardware logs
+├── README.md                        # Master project documentation
+├── requirements.txt                 # Python project environment dependencies
+│
+├── firmware/                        # Microcontroller hardware firmware
 │   └── src/
-│       └── main.ino
-├── src/
-│   ├── __init__.py
-│   ├── config.py
-│   ├── core_inference.py
-│   └── serial_controller.py
-└── tests/
-    └── test_inference.py
+│       └── main.ino                 # Arduino hardware logic sketch
+│
+├── models/                          # AI model files and optimization pathways
+│   ├── download_weights.sh          # Utility script to fetch base weights
+│   └── quantization/
+│       └── vision_core.dlc          # Compiled Snapdragon hardware model bin
+│
+├── src/                             # Core execution framework logic
+│   ├── __init__.py                  # Structural package initializer
+│   ├── config.py                    # Static thresholds and hardware port settings
+│   ├── core_inference.py            # Local Qualcomm device execution pipeline
+│   ├── serial_controller.py         # Outbound microcontroller data transmission
+│   │
+│   ├── camera/                      # Video stream handling package
+│   │   └── pipeline.py              # Camera stream capture and validation loop
+│   │
+│   └── main.py                      # Master system execution manager
+│
+├── hackathon_assets/                # Dashboard branding materials
+│   ├── team_cover.png               # Custom team background asset
+│   └── team_icon.png                # Custom team icon/avatar asset
+│
+└── tests/                           # Unit tests and local execution suites
+    └── test_inference.py            # Automated processing checking routine
 
 
 ```
